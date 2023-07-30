@@ -9,7 +9,7 @@ signed main(){
     cin>>m>>n;
     int ans=0;
     vector <int> k;
-    set <int> s;
+    multiset <int> s;
     int left=0,right=n;
     for(int i=0;i<m;i++){
         int t;

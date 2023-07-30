@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-int main()
+#define int long long
+signed main()
 {
-    ll m, n, sum = 0, ans = -1e9, v;
-    set<ll> k{0};
-    scanf("%lld %lld", &m, &n);
+    int m, n;
+    cin >> m >> n;
+    set<int> s{0};
+    int sum = 0, ans = 0;
     for (int i = 0; i < m; i++)
     {
-        scanf("%lld", &v);
-        sum += v;
-        ll t = sum - n;
-        auto it = k.lower_bound(t);
-        if (it != k.end())
-            ans = max(ans, sum - *it);
-        k.insert(sum);
+        int t;
+        cin >> t;
+        sum += t;
+        int it = *s.lower_bound(sum - n);
+        if (sum - it > ans && sum - it <= n)
+            ans = sum - it;
+        s.insert(sum);
     }
-    ans = max(ans, (ll)0);
-    printf("%lld\n", ans);
+    cout << ans << endl;
     return 0;
 }

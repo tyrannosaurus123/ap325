@@ -6,8 +6,8 @@ int func(int *arr, int left, int right)   // right is open
 { 
     int ans = 0;
     if (right - left == 1)
-        return max(ans, arr[left]);  // one element
-    else if (right - left == 2)      // two elements
+        return max(ans, arr[left]);   // one element
+    else if (right - left == 2)       // two elements
     { 
         ans = max(arr[left], arr[right - 1]);
         return max(ans, arr[left] + arr[right - 1]);

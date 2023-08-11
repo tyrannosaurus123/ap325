@@ -35,34 +35,22 @@ signed main()
         cin >> k[i].p >> k[i].s >> k[i].t;
     }
     sort(k, k + n, cmp);
-    pq<group, vector<group>, Operation> end1,end2; // compare by t
-    int ans = k[0].p;
+    pq<group, vector<group>, Operation> end1; // compare by t
+    int ans = k[0].p, count=k[0].p;
     end1.push(k[0]);
     for (int i = 1; i < n; i++)
     {
-        int tmp=k[i].p,flag=1;
-        while(!end1.empty()){
-            flag=0;
-            group g=end1.top();
-            if(g.t>=k[i].s){
-                end2.push(g);
-                tmp+=g.p;
+        count+=k[i].p;
+        group g=end1.top();
+        while(g.t<k[i].s && !end1.empty()){
+            if(k[i].s>g.t){
+                count-=g.p;
+                end1.pop();
             }
-            end1.pop();
+            g=end1.top();
         }
-        if(flag){
-            while(!end2.empty()){
-                group g=end2.top();
-                if(g.t>=k[i].s){
-                    end1.push(g);
-                    tmp+=g.p;
-                }
-                end2.pop();
-            }
-            end1.push(k[i]);
-        }
-        else end2.push(k[i]);
-        ans=max(ans,tmp);
+        end1.push(k[i]);
+        ans=max(ans,count);
     }
     cout<<ans<<endl;
     return 0;

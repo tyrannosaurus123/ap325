@@ -28,7 +28,7 @@ signed main()
         {
             if (x - it->second > min_d)
             {
-                it = m.erase(it); // retrun the last removed same value
+                it = m.erase(it); // retrun the next postion of the removed element
                 continue;
             }
             min_d = min(min_d, llabs(x - it->second) + llabs(y - it->first));

@@ -6,7 +6,7 @@ using namespace std;
 int n,k,c[N],dp[N];
 signed main(){
     cin>>n>>k;
-    for(int i=0;i<n;i++){
+    for(int i=1;i<=n;i++){
         cin>>c[i];
     }
     deque <int> minq;
@@ -27,6 +27,6 @@ signed main(){
         }
         minq.push_back(i);
     }
-    cout<<*min_element(dp+n-k,dp+n)<<endl;
+    cout<<*min_element(dp+n-k,dp+n+1)<<endl;
     return 0;
 }

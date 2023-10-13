@@ -4,7 +4,7 @@ using namespace std;
 
 vector <int> k[101];
 int d[101]={0};
-bool visit[101]={false};
+bool Visit[101]={false};
 signed main(){
     int n,m;
     int v;
@@ -18,14 +18,14 @@ signed main(){
     vertice.push(v);
     int go=0;
     int sum=0;
-    visit[v]=true;
+    Visit[v]=true;
     while(!vertice.empty()){
         int now=vertice.front();
         vertice.pop();
         for(int i=0;i<k[now].size();i++){
             int v1=k[now][i];
-            if(visit[v1]) continue;
-            visit[v1]=true;
+            if(Visit[v1]) continue;
+            Visit[v1]=true;
             vertice.push(v1);
             d[v1]=d[now]+1;
             sum+=d[v1];

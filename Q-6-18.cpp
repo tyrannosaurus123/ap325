@@ -8,7 +8,7 @@ int memo[N][N];
 vector <int> num;
 int min_num(int i,int j){
     if(memo[i][j]>=0) return memo[i][j];
-    else if(j-i==1) return 0;
+    else if(j-i==1) return memo[i][j]=0;
     int cost=Max;
     for(int k=i+1;k<j;k++){
         int sum=min_num(i,k)+min_num(k,j);

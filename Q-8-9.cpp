@@ -7,11 +7,8 @@ vector <int> graph[N];
 int dp_c[N]={0};  // answer for choosing the vertex
 int dp_nc[N]={0}; // answer for may not choosing the vertex
 int dp_min[N]={0};
-int visited[N]={0};
 
 void dfs(int v,int p){  // (current vertex , parent)
-    // int c1=N,c2=1;  // two comparative values , choose the vertex itself or not
-    // cout<<v<<" "<<p<<endl;
     int s=graph[v].size();
     if(s==0 || (s==1 && graph[v][0]==p)){   // v is leaf
         dp_c[v]=1;
@@ -62,6 +59,5 @@ signed main(){
     }
     dfs(1,0);
     cout<<dp_min[1]<<endl;
-    //for(int i=1;i<=n;i++) cout<<dp_min[i]<<endl;
     return 0;
 }
